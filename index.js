@@ -6,6 +6,7 @@ const config = JSON.parse(fs.readFileSync(process.argv[2] == null ? 'config.json
 
 const token = config.token
 const userAssociation = config.userAssociation
+const admin = config.admin
 
 client.on('ready', () => {
 	console.log(`[${Date.now()}] ${client.user.username} (${client.user.id}) connecté`)
@@ -14,7 +15,7 @@ client.on('ready', () => {
 client.on('voiceStateUpdate', (oldMember, newMember) => {
 	if (userAssociation.map(a => a[0]).includes(newMember.id) || userAssociation.map(a => a[1]).includes(newMember.id)) {
 		if (oldMember.voiceChannelID !== newMember.voiceChannelID) {
-			const otherMember = newMember.guild.member(userAssociation.map(a => a[0]).includes(newMember.id) ? userAssociation[userAssociation.map(a => a[0]).findIndex(newMember.id)][1] : userAssociation[userAssociation.map(a => a[1]).findIndex(newMember.id)][0])
+			const otherMember = newMember.guild.member(userAssociation.map(a => a[0]).includes(newMember.id) ? userAssociation[userAssociation.map(a => a[0]).indexOf(newMember.id)][1] : userAssociation[userAssociation.map(a => a[1]).indexOf(newMember.id)][0])
 			if (newMember.voiceChannelID !== otherMember.voiceChannelID && otherMember.voiceChannelID != null) {
 				console.log(`[${Date.now()}] Tentative de déplacement de ${otherMember} vers ${newMember.voiceChannel}…`)
 				otherMember.setVoiceChannel(newMember.voiceChannelID)
@@ -32,7 +33,7 @@ client.on('voiceStateUpdate', (oldMember, newMember) => {
 })
 
 client.on('message', message => {
-	if (message.channel.type == 'dm' && message.author.id == '124930356167049218' /* ComFoxx */) {
+	if (message.channel.type == 'dm' && message.author.id == admin) {
 		if (message.attachments.size !== 0) {
 			if (['.jpg', '.jpeg', '.png', '.gif'].includes(path.extname(message.attachments.first().filename))) {
 				const imageURL = message.attachments.first().url
