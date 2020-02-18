@@ -74,7 +74,7 @@ client.on('message', message => {
 					.then(() => {
 						message.channel.send(`J'ai déplacé <@${params[0]}> vers ${channel.name}`)
 						.catch(e => console.error(`[${Date.now()}] Le message de déplacement réussi ne peut être envoyé`))
-						console.error(`[${Date.now()}] Déplacement de ${params[0]} vers ${channel.name} réussi`)
+						console.log(`[${Date.now()}] Déplacement de ${params[0]} vers ${channel.name} réussi`)
 					})
 					.catch(e => {
 						message.channel.send(`Je n\'ai pas réussi à changer mon pseudonyme pour : ${newUsername} :\n${e}`)
