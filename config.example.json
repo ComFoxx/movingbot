@@ -1,0 +1,8 @@
+{
+	"token": "TOKEN BOT DISCORD",
+	"userAssociation": [
+		["Identifiant Discord Utilisateur Microphone", "Identifiant Discord Utilisateur Haut-parleur"],
+		["Identifiant Discord Utilisateur 1", "Identifiant Discord Utilisateur 2"]
+	],
+	"admin": "Identifiant Discord Utilisateur Administrateur"
+}

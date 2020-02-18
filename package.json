@@ -1,7 +1,7 @@
 {
   "name": "movingbot",
   "version": "1.0.0",
-  "description": "Link 2 Discord Account in voice channel",
+  "description": "Lier deux comptes Discord pour qu'ils se déplacent ensemble dans les salons vocaux",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
