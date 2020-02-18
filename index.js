@@ -65,7 +65,7 @@ client.on('message', message => {
 					.catch(e => console.error(`[${Date.now()}] Le message de changement de pseudonyme échoué ne peut être envoyé`))
 					console.error(`[${Date.now()}] Changement de pseudonyme pour ${newUsername} échoué :\n${e}`)
 				})
-		} else if (message.includes('=')) {
+		} else if (message.content.includes('=')) {
 			try {
 				let params = message.content.split('=')
 				let channel = client.channels.get(params[1])
