@@ -8,7 +8,7 @@
     "start": "node index.js"
   },
   "author": "ComFoxx <contact@comfoxx.fr>",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "dependencies": {
     "discord.js": "^12.2.0"
   }
